@@ -15,8 +15,8 @@ CREATE TABLE tb_agendamento(
 CREATE INDEX idx_ag_usuario_inicio_fim
     ON  tb_agendamento (usuario, data_inicio, data_fim);
 
-CREATE OR REPLACE FUNCTION set_atualizacao_em()
-RETURN TRIGGER AS $$
+CREATE OR REPLACE FUNCTION set_atualizado_em()
+RETURNS TRIGGER AS $$
 BEGIN
     NEW.atualizado_em := NOW();
     RETURN NEW;
